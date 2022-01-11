@@ -92,8 +92,8 @@ cv::Mat MaxPooling(cv::Mat img, int height, int width) {
     int res_height = int(src_width / width);
     cv::Mat res_layer = cv::Mat(cv::Size(res_width, res_height), CV_32FC(src_count));
 
-    for (int i = 0; i < res_height; i++) {
-        for (int j = 0; j < res_width; j++) {
+    for (int i = 0; i < res_height; i=i+3) {
+        for (int j = 0; j < res_width; j=j+3) {
             Vec5f resVal = Vec5f(0, 0, 0, 0, 0);
             for (int n = height * i; n < height * (i + 1); n++) {
                 for (int m = width * j; m < width * (j + 1); m++) {
